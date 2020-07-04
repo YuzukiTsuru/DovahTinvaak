@@ -1,12 +1,36 @@
 mkdir -p /storage/emulated/0/dovahtinvaak
 exec 2>/storage/emulated/0/dovahtinvaak/dovahtinvaak-install-verbose.log
-set -euxo pipefail
+
 mkdir $TMPDIR/tools
+mkdir -p $TMPDIR/system/etc
 unzip -o "$ZIPFILE" 'module.prop' -d $MODPATH 2>&1
 unzip -o "$ZIPFILE" 'tools/*' -d $TMPDIR 2>&1
+unzip -o "$ZIPFILE" 'system/*' -d $TMPDIR 2>&1
 mv $TMPDIR/tools/busybox-$ARCH32 $TMPDIR/tools/busybox 2>&1
 chmod 0755 $TMPDIR/tools/busybox
 SKIPUNZIP=1
+
+REPLACE="
+"
+
+set_permissions() {
+  : # Remove this if adding to this function
+
+  # Note that all files/folders in magisk module directory have the $MODPATH prefix - keep this prefix on all of your files/folders
+  # Some examples:
+
+  # For directories (includes files in them):
+  # set_perm_recursive  <dirname>                <owner> <group> <dirpermission> <filepermission> <contexts> (default: u:object_r:system_file:s0)
+
+  # set_perm_recursive $MODPATH/system/lib 0 0 0755 0644
+  # set_perm_recursive $MODPATH/system/vendor/lib/soundfx 0 0 0755 0644
+
+  # For files (not in directories taken care of above)
+  # set_perm  <filename>                         <owner> <group> <permission> <contexts> (default: u:object_r:system_file:s0)
+
+  # set_perm $MODPATH/system/lib/libart.so 0 0 0644
+  # set_perm /data/local/tmp/file.txt 0 0 644
+}
 
 set_busybox() {
   if [ -x "$1" ]; then
@@ -48,8 +72,8 @@ set_busybox $_bb
 
 ui_print "Adding"
 
-ln -s $TMPDIR/system/fonts/Dragon.ttf $TMPDIR/system/fonts/Dragon-Regular.ttf
-ln -s $TMPDIR/system/fonts/Dragon.ttf $TMPDIR/system/fonts/Dragon-Bold.ttf
+cp -rf $TMPDIR/system/fonts/Dragon.ttf $TMPDIR/system/fonts/Dragon-Regular.ttf
+cp -rf $TMPDIR/system/fonts/Dragon.ttf $TMPDIR/system/fonts/Dragon-Bold.ttf
 
 cp -rf /system/etc/fonts.xml $TMPDIR/system/etc/fonts.xml
 
