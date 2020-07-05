@@ -22,18 +22,18 @@
 <familyset version="23">
     <!-- first font is default -->
     <family name="sans-serif">
-        <font weight="100" style="normal">Dragon-Thin.ttf</font>
-        <font weight="100" style="italic">Dragon-ThinItalic.ttf</font>
-        <font weight="300" style="normal">Dragon-Light.ttf</font>
-        <font weight="300" style="italic">Dragon-LightItalic.ttf</font>
-        <font weight="400" style="normal">Dragon-Regular.ttf</font>
-        <font weight="400" style="italic">Dragon-Italic.ttf</font>
-        <font weight="500" style="normal">Dragon-Medium.ttf</font>
-        <font weight="500" style="italic">Dragon-MediumItalic.ttf</font>
-        <font weight="900" style="normal">Dragon-Black.ttf</font>
-        <font weight="900" style="italic">Dragon-BlackItalic.ttf</font>
-        <font weight="700" style="normal">Dragon-Bold.ttf</font>
-        <font weight="700" style="italic">Dragon-BoldItalic.ttf</font>
+        <font weight="200" style="normal">Dragon-Thin.ttf</font>
+        <font weight="200" style="italic">Dragon-ThinItalic.ttf</font>
+        <font weight="400" style="normal">Dragon-Light.ttf</font>
+        <font weight="400" style="italic">Dragon-LightItalic.ttf</font>
+        <font weight="500" style="normal">Dragon-Regular.ttf</font>
+        <font weight="500" style="italic">Dragon-Italic.ttf</font>
+        <font weight="600" style="normal">Dragon-Medium.ttf</font>
+        <font weight="600" style="italic">Dragon-MediumItalic.ttf</font>
+        <font weight="1000" style="normal">Dragon-Black.ttf</font>
+        <font weight="1000" style="italic">Dragon-BlackItalic.ttf</font>
+        <font weight="800" style="normal">Dragon-Bold.ttf</font>
+        <font weight="800" style="italic">Dragon-BoldItalic.ttf</font>
     </family>
 
     <!-- Note that aliases must come after the fonts they reference. -->
